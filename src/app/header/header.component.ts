@@ -9,5 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
+  search(event: MouseEvent) {
+    console.log(event);
+    console.log('search');
+  }
 }
