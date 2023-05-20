@@ -1,9 +1,13 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+import { ArticleResult } from './article';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleSearchService {
+
+  private httpClient = inject(HttpClient);
 
   constructor() { }
 
@@ -14,5 +18,9 @@ export class ArticleSearchService {
     return list.filter(
       (item) => item.title.indexOf(keyword) !== -1
     );
+  }
+
+  queryArticles() {
+    return this.httpClient.get<ArticleResult>('https://api.realworld.io/api/articles');
   }
 }
