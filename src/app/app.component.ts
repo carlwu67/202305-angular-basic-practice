@@ -9,6 +9,7 @@ import { DComponent } from '@d/d.component';
 import { ArticleService } from './article.service';
 import { ArticleCountComponent } from './article-count/article-count.component';
 import { Article } from './article';
+import { FilterArticlePipe } from './filter-article.pipe';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,8 @@ import { Article } from './article';
     TagsComponent,
     FooterComponent,
     DComponent,
-    ArticleCountComponent
+    ArticleCountComponent,
+    FilterArticlePipe
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

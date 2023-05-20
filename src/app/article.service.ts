@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { ArticleSearchService } from './article-search.service';
 import { AppComponent } from './app.component';
+import { Article } from './article';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { AppComponent } from './app.component';
 export class ArticleService {
   articleSearchService = inject(ArticleSearchService);
 
-  list = [
+  list: Article[] = [
     {
       title:
         'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',

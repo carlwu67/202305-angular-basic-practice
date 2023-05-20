@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { ArticleResult } from './article';
+import { Article, ArticleResult } from './article';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class ArticleSearchService {
 
   constructor() { }
 
-  search(keyword: string, list: any[]) {
+  search(keyword: string, list: Article[]) {
     if (!keyword) {
       return list;
     }
