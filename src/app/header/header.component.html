@@ -15,6 +15,22 @@
     <button class="btn btn-sm btn-primary" (click)="search($event)">
       <i class="ion-search"></i>
     </button>
-    <span>{{ keyword }}</span>
+    <span class="highlight">
+      <!-- <ng-container *ngIf="!keyword; else yourKeyword">請輸入關鍵字</ng-container>
+
+      <ng-template #yourKeyword>
+        你輸入的關鍵字：{{ keyword }}
+      </ng-template> -->
+
+      <ng-container *ngIf="!keyword; then noKeyword; else yourKeyword"></ng-container>
+
+      <ng-template #noKeyword>
+        請輸入關鍵字
+      </ng-template>
+
+      <ng-template #yourKeyword>
+        你輸入的關鍵字：{{ keyword }}
+      </ng-template>
+    </span>
   </div>
 </nav>
