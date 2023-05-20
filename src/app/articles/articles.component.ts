@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Article } from '../article';
 
 @Component({
   selector: 'app-articles',
@@ -9,5 +10,5 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./articles.component.css']
 })
 export class ArticlesComponent {
-  @Input({ required: true }) list: any[] = [];
+  @Input({ required: true }) list: Article[] = [];
 }
