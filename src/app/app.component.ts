@@ -13,5 +13,6 @@ import { FooterComponent } from './footer/footer.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dct-112005-practice';
+  title = 'conduit!';
+  subtitle = 'A place to share your knowledge.';
 }
