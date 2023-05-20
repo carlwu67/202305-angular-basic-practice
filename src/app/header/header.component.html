@@ -1,6 +1,14 @@
 <nav class="navbar navbar-light">
   <div class="container">
-    <a class="navbar-brand" href="index.html">conduit</a>
+    <!-- <a class="navbar-brand" href="index.html" [class]="{highlight: isHighlight}">conduit</a> -->
+    <!-- <a class="navbar-brand" href="index.html"
+      [class.highlight]="isHighlight"
+      [style]="{'font-size': fontSize + 'px'}"
+    >conduit</a> -->
+    <a class="navbar-brand" href="index.html"
+      [class.highlight]="isHighlight"
+      [style.font-size.px]="fontSize"
+    >conduit</a>
     <input
       [(ngModel)]="keyword"
       class="form-control form-control-sm search-input" type="text" placeholder="Keyword">
