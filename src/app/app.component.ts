@@ -9,11 +9,19 @@ import { DComponent } from '@d/d.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, ArticlesComponent, TagsComponent, FooterComponent, DComponent],
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    ArticlesComponent,
+    TagsComponent,
+    FooterComponent,
+    DComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  keyword = 'demo';
   title = 'conduit!';
   subtitle = 'A place to share your <u>knowledge</u>.';
   list = [
@@ -73,4 +81,17 @@ export class AppComponent {
       favoritesCount: 5,
     },
   ];
+  originalList = this.list;
+
+  search(keyword: string) {
+    console.log(keyword);
+    // this.keyword = keyword;
+    if (!keyword) {
+      this.list = this.originalList;
+    } else {
+      this.list = this.originalList.filter(
+        (item) => item.title.indexOf(keyword) !== -1
+      );
+    }
+  }
 }

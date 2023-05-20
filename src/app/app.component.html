@@ -1,4 +1,12 @@
-<app-header></app-header>
+<!-- <app-header
+  [keyword]="keyword"
+  (keywordChange)="keyword = $event"
+  (searchByKeyword)="search($event)"></app-header> -->
+<app-header
+  [(keyword)]="keyword"
+  (searchByKeyword)="search($event)"></app-header>
+
+{{ keyword }}
 
 <div class="home-page">
   <div class="banner">
