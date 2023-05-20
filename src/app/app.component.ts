@@ -10,6 +10,7 @@ import { ArticleService } from './article.service';
 import { ArticleCountComponent } from './article-count/article-count.component';
 import { Article } from './article';
 import { FilterArticlePipe } from './filter-article.pipe';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,7 @@ export class AppComponent implements OnInit {
   keyword = '';
   title = 'conduit!';
   subtitle = 'A place to share your <u>knowledge</u>.';
-
+  displayArticles = false;
   list: Article[] = [];
   // list: any[] = this.articleService.search('');
   // list = this.articleService.list;
@@ -45,10 +46,15 @@ export class AppComponent implements OnInit {
   // constructor(private articleService: ArticleService) {
   // }
 
+  list$ = this.articleSearchService.queryArticles().pipe(
+    map(result => result.articles)
+  );
+
   ngOnInit() {
-    this.articleSearchService.queryArticles().subscribe((result) => {
-      this.list = result.articles;
-    });
+    // this.articleSearchService.queryArticles().subscribe((result) => {
+    //   this.list = result.articles;
+    //   this.articleService.list = result.articles;
+    // });
   }
 
   search(keyword: string) {
