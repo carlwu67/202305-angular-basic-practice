@@ -7,10 +7,23 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  @Input() keyword = '';
+  private _keyword = '';
+  @Input()
+  set keyword(value: string) {
+    if (!value) {
+      this._keyword = 'demo';
+    } else {
+      this._keyword = value;
+    }
+  }
+
+  get keyword() {
+    return this._keyword;
+  }
+
   @Output() keywordChange = new EventEmitter<string>();
 
   @Output() searchByKeyword = new EventEmitter<string>();

@@ -4,9 +4,12 @@
   (searchByKeyword)="search($event)"></app-header> -->
 <app-header
   [(keyword)]="keyword"
-  (searchByKeyword)="search($event)"></app-header>
-
-{{ keyword }}
+  (searchByKeyword)="search($event)"
+></app-header>
+<div style="text-align: center">
+  <div>keyword: {{ keyword }}</div>
+  <app-article-count></app-article-count>
+</div>
 
 <div class="home-page">
   <div class="banner">
@@ -19,7 +22,7 @@
   <div class="container page">
     <div class="row">
       <div class="col-md-9">
-        <app-articles [list]="list"></app-articles>
+        <app-articles [list]="articleService.list"></app-articles>
       </div>
       <div class="col-md-3">
         <app-tags></app-tags>
